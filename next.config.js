@@ -7,6 +7,7 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 })
 
+
 const nextConfig = {
   // uncomment the following snippet if using styled components
   // compiler: {
@@ -14,6 +15,7 @@ const nextConfig = {
   // },
   experimental: {},
   images: {},
+  basePath: '/pages',
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   webpack(config, { isServer }) {
     // audio support
@@ -41,6 +43,17 @@ const nextConfig = {
       exclude: /node_modules/,
       use: ['raw-loader', 'glslify-loader'],
     })
+
+    // mdx support
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: [
+        {
+          loader: '@mdx-js/loader',
+          options: {}
+        }
+      ]}) 
+
 
     return config
   },

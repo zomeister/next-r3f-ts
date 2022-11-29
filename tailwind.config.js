@@ -1,6 +1,6 @@
-module.exports = {
+const tailwindConfig = {
   mode: 'jit',
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'], // remove unused styles in production
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx,md,mdx}', './src/components/**/*.{js,ts,jsx,tsx,md,mdx}'], // remove unused styles in production
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {},
@@ -9,4 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
+
+/** @zoe, changed to es module! */
+module.exports = tailwindConfig;
