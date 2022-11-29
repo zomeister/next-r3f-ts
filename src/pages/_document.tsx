@@ -1,6 +1,7 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-
+/** This file should be very simple and should not
+ * need to be edited a lot.*/
 /** <body/> tag is optional. The rest are not. */
 
 /** this <Head> is different from the 'next/head' and should be
@@ -9,14 +10,20 @@ import { Html, Head, Main, NextScript } from 'next/document';
  * No application logic can be applied (use Layouts for those).
  * Cannot use { getStaticProps | getServerSideProps }.
  */
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head/>
-      <body className="doc-theme">
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+export default class CostumDocument extends Document {
+  render(): JSX.Element {
+    return (
+      <Html lang="en">
+        <Head>
+          <meta charSet="utf-8" />
+          <meta lang="en"/>
+          <meta name="author" content="ZoeYG" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
